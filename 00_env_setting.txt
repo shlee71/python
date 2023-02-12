@@ -1,0 +1,19 @@
+etc/apache2/sites-enabled>$ sudo vi 000-default.conf
+1. change default directory
+   sudo vi /etc/apache2/sites-enabled/000-default.conf
+   /var/www/html changed  current directory commented #
+2. add cgi <Directory> ~~ </Directory>
+3. add directory /etc/apache2/apachd2.conf
+   <Directory /home/shlee/>
+4. cgi set & apache2 restart
+  > sudo a2enmod cgi
+  > systemctl restart apache2
+5. check using this command
+  > sudo tail -f /var/log/apache2/error.log
+6. permission error of current directory
+  chmod a+x upper directory
+  > chmod a+x /home
+  > chmod a+x /home/lang
+7. add the line helloworld.py
+  print("Content-Type: text/html; charset=UTF-8\n")
+
